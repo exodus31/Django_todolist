@@ -7,3 +7,5 @@ Step 4 - Copy the local address where you have extracted the contents. Now type 
 Step 5 - Now type 'python manage.py runserver' in the cmd.You will be able to see a local link(usually starts with 'https://127') after running this command.
 step 6 - Now go to chrome, type that local link and you should be able to see my website!!!
 
+If you have any queries contact me!!
+mail - ee210002067@iiti.ac.in or sarthak.nandre31@gmail.com
