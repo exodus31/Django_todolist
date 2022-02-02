@@ -1,0 +1,84 @@
+        body{
+            margin-left: 20px;
+            margin-right: 20px;
+            color: white;
+            font-family: Apple Chancery, cursive;
+            background-image: linear-gradient(black, purple);
+        }
+        .content{
+            animation-name: slide;
+            animation-duration: 2s;
+        }
+        .link{
+            text-decoration:none;
+            color: white;
+        }
+        .link:hover{
+            color:rgb(207, 204, 204);
+            cursor:pointer;
+        }
+        h1{
+            font-family: Apple Chancery, cursive;
+            padding: 20px 20px 0px 20px;
+        }
+        .center{
+            text-align: center;
+        }
+        .nol{
+            height: 50px;
+            width:1000px;
+            border-radius: 5px;            
+            border-color: black;
+            font-family: Apple Chancery, cursive;
+        }
+        .error{
+            color:red;
+            text-align: center;
+        }
+        .dellink{
+            text-decoration: none;
+            color:red;
+        }
+         .dellink:hover{
+            color:rgb(151, 3, 3);
+            cursor:pointer;
+        }
+        .btn{            
+            padding: 10px;
+            font-size:20px;
+            border-radius: 5px;
+            border: none;
+            background-color: white;
+            font-family: Stencil Std, fantasy;
+        }
+        .btn:hover{
+            background-color: #ccccff;
+            cursor: pointer;
+            border: none;
+        }
+        .container{
+            border: solid 1px white;
+            padding-top: 10px;
+            padding-bottom: 25px;
+            padding-left:20px;
+            padding-right: 10px;
+        }
+        .y{
+            padding-left:20px;
+        }
+        .animation{
+            padding: 20px;
+            position: relative;
+            text-align: center;
+            animation-name: slide;
+            animation-duration: 1.5s;
+            animation-iteration-count: 1;
+        }
+         @keyframes slide {
+             0% {
+                 opacity: 0;
+             }
+             100% {
+                 opacity: 1;
+             }
+         }

@@ -1,0 +1,78 @@
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'style1.css' %}">
+        <title>To Do list website by Sarthak Nandre</title>
+    </head>
+    <body>
+        <div>
+            <h1 align="center" class="animation" >Welcome To My Todo List Website</h1>
+            <br>
+        </div>
+        <div class="content">
+            <div class="container">
+                <h2 align="center">Create new list here</h2>
+                {% for z in messages %}
+                <p class="error" align="center">{{z}}</p>
+                {% endfor %}
+                <div>
+                    <form action="clist" method="post" class="formx">
+                        {% csrf_token %}
+                        <input type="text" class="nol" name="name" placeholder="Name of List" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="submit" class="btn" value="create"/>
+                    </form>
+                </div>
+            </div>
+            <br>
+            <div>
+                <h1 class="y">Your Lists</h1>
+                <h5 class="y"><i>(Click on the list-name to View, Add or Delete tasks)</i></h5>
+                <hr>
+            </div>
+                {% for x in list %}
+                 <div class="y">
+                    <div>
+                        <a href="/lists/{{x.id}}" class="link">
+                        <h3 class="inbox">{{x.title}}</h3>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="deletelist/{{x.id}}" class="dellink">
+                        <p>Delete List</p></a>
+                    </div>
+                </div>
+                <hr>
+                {% endfor %}
+            <br><br><br>
+            <div id="about" class="container">
+                <h2>Features of website</h2>
+                    <p>This website is made using html css and django only.</p>
+                    <p>You can create new lists, access created lists or delete existing lists on this page.</p>
+                    <p>You can create only one list for one list name.</p>
+                    <p>The list-name cannot be blank.</p>
+                    <p>You can click on name of list to view, add or delete tasks of that list.</p>
+                    <p>You can login to admin panel by using following credentials
+                        <br>
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; username - 'sarthak'
+                        <br>
+                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; password - 'sar'
+                    </p>
+                    <p>When you delete a list, all its tasks automatically get deleted. You can verify this by logging into the admin panel and deleting a list.</p>
+                    <p>Also instead of database I have used Django Models for storing data.</p>
+                    <br>
+            </div>
+            <div id="contact" class="container">
+                <h2>My Contact Details</h2>
+                <p>Name - Sarthak Nandre</p>
+                <p>Institute Mail - ee210002067@iiti.ac.in</p>
+                <p>Whatsapp Number - 7507115546</p>
+            </div>
+        <br><br><br>
+        <hr>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="link" target="_blank">
+        <h2 align="center" >Have A Good Day.</h2>
+        <p align="center"><i>(do not CLICK HERE)</i></p></a>
+        </div>
+     </body>
+</html>

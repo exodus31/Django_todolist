@@ -1,0 +1,52 @@
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'style2.css' %}">
+        <title>{{listx.title}}</title>
+    </head>
+    <body>
+        <h1 align="center" id="#" class="head">List Name - {{listx.title}}</h1>
+        <div class="content">
+            <div class="container">
+                <h2>Add Task Here</h2>
+                {% for x in messages %}
+                <h3 class="error">{{x}}</h3>
+                {% endfor %}
+
+                <form action="job" >
+                    <input type="hidden" name="id" value="{{listx.id}}">
+                    <input type="hidden" name="title" value="{{listx.title}}">
+                    <div >
+                        <input type="text" name="name" class="box" placeholder="Task. (cannot be blank)" />
+                    </div>
+                    <br>
+                    <div >
+                        <input type="text" name="date" class="box" placeholder="Date or Time of Task. (can be blank)" />
+                    </div>
+                    <br>
+                    <div>
+                        <input class="btn" type="submit" value="add"/>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <h1 class="y">Your Tasks</h1>
+            <hr>
+            {% for t in jobs %}
+            {% if listx.title == t.title %}
+            <div class="y">
+                <h3>{{t.job | title}}</h3>
+                <h3>{{t.date}}</h3>
+                <a href="delete/{{listx.id}}/{{t.id}}" class="delete">
+                    <p>Delete Task</p>
+                </a>
+            </div>
+            <hr>
+            {% endif %}
+            {% endfor %}
+            <br>
+            <h3 class="x"><a href="/"  class="link">Click Here To Go Back</a></h3>
+        </div>
+    </body>
+</html>

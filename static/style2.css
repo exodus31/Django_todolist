@@ -1,0 +1,77 @@
+    body{
+        font-family: Apple Chancery, cursive;
+        margin-left: 20px;
+        margin-right: 20px;
+        color:white;
+        background-image: linear-gradient(black, purple);
+    }
+
+    .x{
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    .btn{
+        font-family: Stencil Std, fantasy;
+        background-color: white;
+        border-radius: 5px;
+        font-size: 20px;
+    }
+    .btn:hover{
+        background-color: #ccccff;
+        cursor: pointer;
+    }
+    .container{
+        border: solid 1px white;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left:20px;
+        padding-right: 10px;
+    }
+    .link{
+        text-decoration:none;
+        color: white;
+    }
+    .link:hover{
+        color:rgb(207, 204, 204);
+        cursor:pointer;
+    }
+    .y{
+        padding-left:20px;
+    }
+    .delete{
+        text-decoration:none;
+        color:red;
+    }
+    .delete:hover{
+        color:rgb(151, 3, 3);
+        cursor:pointer;
+    }
+    .box{
+        border-radius: 5px;
+        height:40px;
+        width:50%;
+        font-family: Apple Chancery, cursive;
+    }
+    .error{
+        color:red;
+    }
+    .content{
+        animation-name: fadein;
+        animation-duration: 1.5s;
+    }
+    .head{
+        padding: 20px;
+        position: relative;
+        text-align: center;
+        animation-name: fadein;
+        animation-duration: 1s;
+        animation-iteration-count: 1;
+    }
+    @keyframes fadein {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
