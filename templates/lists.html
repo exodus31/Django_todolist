@@ -36,7 +36,7 @@
             {% for t in jobs %}
             {% if listx.title == t.title %}
             <div class="y">
-                <h3>{{t.job | title}}</h3>
+                <h3>{{t.job}}</h3>
                 <h3>{{t.date}}</h3>
                 <a href="delete/{{listx.id}}/{{t.id}}" class="delete">
                     <p>Delete Task</p>
