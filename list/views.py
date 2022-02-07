@@ -30,8 +30,9 @@ def clist(request):
 
 def list(request, pk):
     listx = Lists.objects.get(id=pk)
+    listy = Lists.objects.all()
     job = Jobs.objects.all()
-    return render(request, 'lists.html', {'listx': listx, 'jobs': job})
+    return render(request, 'lists.html', {'listx': listx, 'jobs': job, 'listy': listy})
 
 
 def job(request):

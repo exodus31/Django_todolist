@@ -17,11 +17,11 @@
                 <form action="job" >
                     <input type="hidden" name="id" value="{{listx.id}}">
                     <input type="hidden" name="title" value="{{listx.title}}">
-                    <div >
+                    <div>
                         <input type="text" name="name" class="box" placeholder="Task. (cannot be blank)" />
                     </div>
                     <br>
-                    <div >
+                    <div>
                         <input type="text" name="date" class="box" placeholder="Date or Time of Task. (can be blank)" />
                     </div>
                     <br>
@@ -46,6 +46,16 @@
             {% endif %}
             {% endfor %}
             <br>
+            <h1 class="y">Other Lists</h1>
+            <hr>
+            {% for y in listy %}
+            {% if y.title != listx.title%}
+                <a href="/lists/{{y.id}}" class="link">
+                    <h2 class="y">{{y.title}}</h2>
+                </a>
+            <hr>
+            {%endif%}
+            {% endfor %}
             <h3 class="x"><a href="/"  class="link">Click Here To Go Back</a></h3>
         </div>
     </body>
