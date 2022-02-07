@@ -31,6 +31,14 @@
         text-decoration:none;
         color: white;
     }
+    .linkx{
+        text-decoration:none;
+        color: white;
+    }
+    .linkx:hover{
+        color:green;
+        cursor:pointer;
+    }
     .link:hover{
         color:rgb(207, 204, 204);
         cursor:pointer;

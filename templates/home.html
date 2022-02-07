@@ -6,15 +6,14 @@
         <title>To Do list website by Sarthak Nandre</title>
     </head>
     <body>
-        <div>
-            <h1 align="center" class="animation" >Welcome To My Todo List Website</h1>
-            <br>
-        </div>
+        <h1 align="center" class="animation" >Welcome To My Todo List Website</h1>
+        <br>
+<!-- Create List -->
         <div class="content">
             <div class="container">
                 <h2 align="center">Create new list here</h2>
                 {% for z in messages %}
-                <p class="error" align="center">{{z}}</p>
+                    <h3 class="error" align="center">{{z}}</h3>
                 {% endfor %}
                 <div>
                     <form action="clist" method="post" class="formx">
@@ -25,25 +24,27 @@
                 </div>
             </div>
             <br>
+<!-- My Lists -->
             <div>
-                <h1 class="y">Your Lists</h1>
+                <h1 class="y">My Lists</h1>
                 <h5 class="y"><i>(Click on the list-name to View, Add or Delete tasks)</i></h5>
                 <hr>
             </div>
                 {% for x in list %}
-                 <div class="y">
-                    <div>
-                        <a href="/lists/{{x.id}}" class="link">
-                        <h3 class="inbox">{{x.title}}</h3>
-                        </a>
+                     <div class="y">
+                        <div>
+                            <a href="/lists/{{x.id}}" class="link">
+                            <h3 class="inbox">{{x.title}}</h3>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="deletelist/{{x.id}}" class="dellink">
+                            <p>Delete List</p></a>
+                        </div>
                     </div>
-                    <div>
-                        <a href="deletelist/{{x.id}}" class="dellink">
-                        <p>Delete List</p></a>
-                    </div>
-                </div>
-                <hr>
+                    <hr>
                 {% endfor %}
+<!-- Features -->
             <br><br><br>
             <div id="about" class="container">
                 <h2>Features of website</h2>
@@ -52,6 +53,8 @@
                     <p>You can create only one list for one list name.</p>
                     <p>The list-name cannot be blank.</p>
                     <p>You can click on name of list to view, add or delete tasks of that list.</p>
+                    <p>You also have an option to add a task to completed tasks in a particular list.</p>
+                    <p>You can navigate to other lists even from inside a particular list.</p>
                     <p>You can login to admin panel by using following credentials
                         <br>
                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; username - 'sarthak'
@@ -62,6 +65,7 @@
                     <p>Also instead of database I have used Django Models for storing data.</p>
                     <br>
             </div>
+<!-- Contact -->
             <div id="contact" class="container">
                 <h2>My Contact Details</h2>
                 <p>Name - Sarthak Nandre</p>
@@ -69,10 +73,15 @@
                 <p>Whatsapp Number - 7507115546</p>
             </div>
         <br><br><br>
-        <hr>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="link" target="_blank">
-        <h2 align="center" >Have A Good Day.</h2>
-        <p align="center"><i>(do not CLICK HERE)</i></p></a>
         </div>
-     </body>
+    </body>
+<!-- Footer -->
+    <footer>
+        <div class="content">
+            <hr>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="link" target="_blank">
+            <h2 align="center" >Have A Good Day.</h2>
+            <p align="center"><i>(do not CLICK HERE)</i></p></a>
+        </div>
+    </footer>
 </html>

@@ -56,6 +56,7 @@ def job(request):
 def delete(request, sk, pk):
     task = Jobs.objects.get(id=pk)
     task.delete()
+    messages.info(request, 'Task Deleted')
     return redirect('/lists/'+sk)
 
 
@@ -65,4 +66,13 @@ def dellist(request, pk):
         if x.title == list.title:
             x.delete()
     list.delete()
+    messages.info(request, 'List Deleted')
     return redirect('/')
+
+
+def edit(request, sk, pk):
+    task = Jobs.objects.get(id=pk)
+    task.date = task.job
+    task.save()
+    messages.info(request, 'Task Moved To Completed Tasks')
+    return redirect('/lists/'+sk)

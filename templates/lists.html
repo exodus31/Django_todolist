@@ -5,15 +5,25 @@
         <link rel="stylesheet" href="{% static 'style2.css' %}">
         <title>{{listx.title}}</title>
     </head>
+    <style>
+        .linkx{
+        text-decoration:none;
+        color: white;
+        }
+        .linkx:hover{
+            color:green;
+            cursor:pointer;
+        }
+    </style>
     <body>
         <h1 align="center" id="#" class="head">List Name - {{listx.title}}</h1>
+<!--Add task-->
         <div class="content">
             <div class="container">
                 <h2>Add Task Here</h2>
                 {% for x in messages %}
-                <h3 class="error">{{x}}</h3>
+                    <h3 class="error">{{x}}</h3>
                 {% endfor %}
-
                 <form action="job" >
                     <input type="hidden" name="id" value="{{listx.id}}">
                     <input type="hidden" name="title" value="{{listx.title}}">
@@ -22,7 +32,7 @@
                     </div>
                     <br>
                     <div>
-                        <input type="text" name="date" class="box" placeholder="Date or Time of Task. (can be blank)" />
+                        <input type="text" name="date" class="box" placeholder="Description of Task. (can be blank)" />
                     </div>
                     <br>
                     <div>
@@ -31,21 +41,49 @@
                 </form>
             </div>
             <br>
-            <h1 class="y">Your Tasks</h1>
+<!--My tasks-->
+            <h1 class="y">My Tasks</h1>
             <hr>
             {% for t in jobs %}
             {% if listx.title == t.title %}
-            <div class="y">
-                <h3>{{t.job}}</h3>
-                <h3>{{t.date}}</h3>
-                <a href="delete/{{listx.id}}/{{t.id}}" class="delete">
-                    <p>Delete Task</p>
-                </a>
-            </div>
+            {% if t.job != t.date %}
+                <div class="y">
+                    <h3>{{t.job}}</h3>
+                    {% if t.date != "" %}
+                        <h3>Description - {{t.date}}</h3>
+                    {% else %}
+                        <h3>Description - None.</h3>
+                    {% endif %}
+                    <a href="edit/{{listx.id}}/{{t.id}}" class="linkx">
+                        <p>Task Completed</p>
+                    </a>
+                    <a href="delete/{{listx.id}}/{{t.id}}" class="delete">
+                        <p>Delete Task</p>
+                    </a>
+                </div>
+                <hr>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+<!--Completed task-->
+            <br>
+            <h1  class="y">Completed Tasks</h1>
             <hr>
+            {% for z in jobs %}
+            {% if listx.title == z.title %}
+            {% if z.job == z.date %}
+                <div class="y">
+                    <h3>{{z.job}} - <i>Completed</i></h3>
+                    <a href="delete/{{listx.id}}/{{z.id}}" class="delete">
+                        <p>Delete from here</p>
+                    </a>
+                </div>
+                <hr>
+            {% endif %}
             {% endif %}
             {% endfor %}
             <br>
+<!--Other lists-->
             <h1 class="y">Other Lists</h1>
             <hr>
             {% for y in listy %}
@@ -53,9 +91,10 @@
                 <a href="/lists/{{y.id}}" class="link">
                     <h2 class="y">{{y.title}}</h2>
                 </a>
-            <hr>
+                <hr>
             {%endif%}
             {% endfor %}
+            <br>
             <h3 class="x"><a href="/"  class="link">Click Here To Go Back</a></h3>
         </div>
     </body>
