@@ -35,10 +35,6 @@
         text-decoration:none;
         color: white;
     }
-    .linkx:hover{
-        color:green;
-        cursor:pointer;
-    }
     .link:hover{
         color:rgb(207, 204, 204);
         cursor:pointer;
@@ -69,6 +65,7 @@
     }
     .head{
         padding: 20px;
+        font-size:40px;
         position: relative;
         text-align: center;
         animation-name: fadein;

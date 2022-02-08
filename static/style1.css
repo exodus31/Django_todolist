@@ -13,16 +13,9 @@
             text-decoration:none;
             color: white;
         }
-        .link:hover{
-            color:rgb(207, 204, 204);
-            cursor:pointer;
-        }
-        h1{
+        .h{
             font-family: Apple Chancery, cursive;
             padding: 20px 20px 0px 20px;
-        }
-        .center{
-            text-align: center;
         }
         .nol{
             height: 50px;
@@ -56,15 +49,49 @@
             cursor: pointer;
             border: none;
         }
+        .btn2{
+            font-size:30px;
+            background-color:rgb(102, 0, 102,0);
+            border-radius:5px;
+            color:white;
+            padding:8 15 10 15;
+            border: solid 1px beige;
+            font-family: Apple Chancery, cursive;
+        }
+        .btn2:hover{
+            color:beige;
+            background-color:#4d0066;
+            cursor:pointer;
+        }
+        .btn3{
+            background-color:rgb(102, 0, 102,0);
+            border-radius:5px;
+            color:white;
+            padding:8 15 10 15;
+            border: none;
+            font-family: Apple Chancery, cursive;
+        }
+        .btn3:hover{
+            color:red;
+            background-color:#4d0066;
+            cursor:pointer;
+        }
+        .name{
+            text-align:center;
+            font-family:Times, Times New Roman, serif;
+        }
+        .y{
+            paddin-left:20px;
+        }
+        .h{
+            font-size:40px;
+        }
         .container{
             border: solid 1px white;
             padding-top: 10px;
             padding-bottom: 25px;
             padding-left:20px;
             padding-right: 10px;
-        }
-        .y{
-            padding-left:20px;
         }
         .animation{
             padding: 20px;

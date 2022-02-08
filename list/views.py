@@ -44,6 +44,9 @@ def job(request):
     if task == "":
         messages.info(request, 'Task Cannot Be Blank')
         return redirect('/lists/' + id)
+    elif task == date:
+        messages.info(request, 'Description Cannot be same as Task')
+        return redirect('/lists/' + id)
     else:
         jo.title = title
         jo.job = task

@@ -1,4 +1,3 @@
-
 {% load static %}
 
 <html>
@@ -6,24 +5,73 @@
         <link rel="stylesheet" href="{% static 'style2.css' %}">
         <title>{{listx.title}}</title>
     </head>
+    <style>
+        .btn2{
+            background-color:purple;
+            border-radius:5px;
+            color:white;
+             padding:8 15 10 15;
+            border: none;
+            font-family: Apple Chancery, cursive;
+        }
+        .btn2:hover{
+            color:lime;
+            background-color:#4d0066;
+            cursor:pointer;
+        }
+        .btn3{
+            background-color:purple;
+            border-radius:5px;
+            color:white;
+             padding:8 15 10 15;
+            border: none;
+            font-family: Apple Chancery, cursive;
+        }
+        .btn3:hover{
+            color:red;
+            background-color:#4d0066;
+            cursor:pointer;
+        }
+        .name{
+            font-family:Times, Times New Roman, serif;
+            text-align:center;
+        }
+        .name2{
+            font-family:Times, Times New Roman, serif;
+        }
+        .btn4{
+            font-size:30px;
+            background-color:rgb(102, 0, 102,0);
+            border-radius:5px;
+            color:white;
+            padding:8 15 10 15;
+            border: solid 1px beige;
+            font-family: Apple Chancery, cursive;
+        }
+        .btn4:hover{
+            color:beige;
+            background-color:#4d0066;
+            cursor:pointer;
+        }
+    </style>
     <body>
         <h1 align="center" id="#" class="head">List Name - {{listx.title}}</h1>
+<!--Add task-->
         <div class="content">
             <div class="container">
-                <h2>Add Task Here</h2>
+                <h1 class="name2">Add Task Here</h1>
                 {% for x in messages %}
-                <h3 class="error">{{x}}</h3>
+                    <h3 class="error">{{x}}</h3>
                 {% endfor %}
-
                 <form action="job" >
                     <input type="hidden" name="id" value="{{listx.id}}">
                     <input type="hidden" name="title" value="{{listx.title}}">
                     <div>
-                        <input type="text" name="name" class="box" placeholder="Task. (cannot be blank)" />
+                        <input type="text" name="name" class="box" placeholder=" Task. (cannot be blank)" />
                     </div>
                     <br>
                     <div>
-                        <input type="text" name="date" class="box" placeholder="Date or Time of Task. (can be blank)" />
+                        <input type="text" name="date" class="box" placeholder=" Description of Task. (can be blank) (cannot be same as 'Task'.)" />
                     </div>
                     <br>
                     <div>
@@ -32,32 +80,74 @@
                 </form>
             </div>
             <br>
-            <h1 class="y">Your Tasks</h1>
+<!--My tasks-->
+            <h1 class="y name">My Tasks</h1>
             <hr>
             {% for t in jobs %}
             {% if listx.title == t.title %}
-            <div class="y">
-                <h3>{{t.job}}</h3>
-                <h3>{{t.date}}</h3>
-                <a href="delete/{{listx.id}}/{{t.id}}" class="delete">
-                    <p>Delete Task</p>
-                </a>
-            </div>
+            {% if t.job != t.date %}
+                <div class="y">
+                    <h3>{{t.job}}</h3>
+                    {% if t.date != "" %}
+                        <h4>Description - {{t.date}}</h4>
+                    {% else %}
+                        <h4>Description - None.</h4>
+                    {% endif %}
+                    <a href="edit/{{listx.id}}/{{t.id}}" class="linkx">
+                        <button class="btn2">
+                            Task Completed
+                        </button>
+                    </a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="delete/{{listx.id}}/{{t.id}}" class="delete">
+                        <button class="btn3">
+                            Delete Task
+                        </button>
+                    </a>
+                </div>
+                <br>
+                <hr>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+<!--Completed task-->
+            <br>
+            <h1 class="y name">Completed Tasks</h1>
             <hr>
+            {% for z in jobs %}
+            {% if listx.title == z.title %}
+            {% if z.job == z.date %}
+                <div class="y">
+                    <h3>{{z.job}} - <i>Completed</i></h3>
+                    <a href="delete/{{listx.id}}/{{z.id}}" class="delete">
+                        <button class="btn3">
+                            Delete from here
+                        </button>
+                    </a>
+                </div>
+                <br>
+                <hr>
+            {% endif %}
             {% endif %}
             {% endfor %}
             <br>
-            <h1 class="y">Other Lists</h1>
+<!--Other lists-->
+            <h1 class="y name">Other Lists</h1>
             <hr>
             {% for y in listy %}
             {% if y.title != listx.title%}
+                <br>
                 <a href="/lists/{{y.id}}" class="link">
-                    <h2 class="y">{{y.title}}</h2>
+                    <button class="btn4">
+                        {{y.title}}
+                    </button>
                 </a>
-            <hr>
+                <br><br>
+                <hr>
             {%endif%}
             {% endfor %}
-            <h3 class="x"><a href="/"  class="link">Click Here To Go Back</a></h3>
+            <br>
+            <h3 class="x"><a href="/"  class="link">Click Here To Go To Homepage.</a></h3>
         </div>
     </body>
 </html>
