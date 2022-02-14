@@ -10,4 +10,5 @@ class Lists(models.Model):
 class Jobs(models.Model):
     title = models.CharField(max_length=100, default="x")
     job = models.CharField(max_length=1000)
-    date = models.CharField(max_length=100, default="")
+    description = models.CharField(max_length=100, default="")
+    comp = models.CharField(max_length=100, default="false")

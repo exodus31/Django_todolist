@@ -22,7 +22,7 @@
                     </div>
                     <br>
                     <div>
-                        <input type="text" name="date" class="box" placeholder=" Description of Task. (can be blank) (cannot be same as 'Task'.)" />
+                        <input type="text" name="description" class="box" placeholder=" Description of Task. (can be blank)" />
                     </div>
                     <br>
                     <div>
@@ -36,15 +36,15 @@
             <hr>
             {% for t in jobs %}
             {% if listx.title == t.title %}
-            {% if t.job != t.date %}
+            {% if t.comp != "true" %}
                 <div class="y">
                     <h3>{{t.job}}</h3>
-                    {% if t.date != "" %}
-                        <h4>Description - {{t.date}}</h4>
+                    {% if t.description != "" %}
+                        <h5>Description - {{t.description}}</h5>
                     {% else %}
-                        <h4>Description - None.</h4>
+                        <h5>Description - None.</h5>
                     {% endif %}
-                    <a href="edit/{{listx.id}}/{{t.id}}" class="linkx">
+                    <a href="comp/{{listx.id}}/{{t.id}}" class="linkx">
                         <button class="btn2">
                             Task Completed
                         </button>
@@ -67,7 +67,7 @@
             <hr>
             {% for z in jobs %}
             {% if listx.title == z.title %}
-            {% if z.job == z.date %}
+            {% if z.comp == "true" %}
                 <div class="y">
                     <h3>{{z.job}} - <i>Completed</i></h3>
                     <a href="delete/{{listx.id}}/{{z.id}}" class="delete">

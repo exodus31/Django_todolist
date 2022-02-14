@@ -38,19 +38,16 @@ def list(request, pk):
 def job(request):
     jo = Jobs()
     title = request.GET.get('title')
-    date = request.GET.get('date')
+    description = request.GET.get('description')
     task = request.GET.get('name')
     id = request.GET.get('id')
     if task == "":
         messages.info(request, 'Task Cannot Be Blank')
         return redirect('/lists/' + id)
-    elif task == date:
-        messages.info(request, 'Description Cannot be same as Task')
-        return redirect('/lists/' + id)
     else:
         jo.title = title
         jo.job = task
-        jo.date = date
+        jo.description = description
         jo.save()
         messages.info(request, 'Task added')
         return redirect('/lists/'+id)
@@ -73,9 +70,9 @@ def dellist(request, pk):
     return redirect('/')
 
 
-def edit(request, sk, pk):
+def comp(request, sk, pk):
     task = Jobs.objects.get(id=pk)
-    task.date = task.job
+    task.comp = "true"
     task.save()
     messages.info(request, 'Task Moved To Completed Tasks')
     return redirect('/lists/'+sk)
